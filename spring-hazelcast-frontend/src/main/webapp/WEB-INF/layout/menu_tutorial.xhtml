@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">   
+
+    <h:form styleClass="form-signin" rendered="#{sessionContext.user.id != null}">
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">     
+                <div class="navbar-header">             
+                    <a class="navbar-brand" href="#{request.contextPath}/userlist.jsf">Home</a>                 
+                    <h:commandLink value="#{i18n.logout}" styleClass="navbar-brand"  action="#{userLogout.doLogout}"
+                                   immediate="true" rendered="#{sessionContext.user != null}"/>
+
+                </div>
+            </div><!-- /.container -->
+        </div><!-- /.container -->
+    </h:form>
+</html>
+

@@ -1,0 +1,8 @@
+mysql db name hibtest
+mysql user pass root/root
+Project compiled under JDK 1.8
+Project have two parts:
+hibernate-backend.jar
+hibernate-web war 
+hibernate-backend.jar added as dependency in hibernate-web.war
+config files in hibernate-backend\src\main\resources
