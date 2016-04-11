@@ -7,12 +7,12 @@
         <time-to-live-seconds>30</time-to-live-seconds>
     </map>
     <map name="employeeList">
-        <backup-count>0</backup-count>
+<!--        <backup-count>0</backup-count>
         <max-idle-seconds>0</max-idle-seconds>
         <eviction-policy>LRU</eviction-policy>
         <time-to-live-seconds>30</time-to-live-seconds>
         <max-size>3000</max-size>
         <eviction-percentage>30</eviction-percentage>
-        <merge-policy>com.hazelcast.map.merge.PutIfAbsentMapMergePolicy</merge-policy>
+        <merge-policy>com.hazelcast.map.merge.PutIfAbsentMapMergePolicy</merge-policy>-->
     </map>
 </hazelcast>

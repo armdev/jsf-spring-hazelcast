@@ -1,5 +1,8 @@
 package com.backend.configs;
 
+import com.hazelcast.config.Config;
+import com.hazelcast.config.ListConfig;
+import com.hazelcast.config.MapConfig;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -42,7 +45,15 @@ public class CommonCoreConfig {
 
     @Bean
     public HazelcastInstance hazelcastInstance() {
-        HazelcastInstance instance = Hazelcast.newHazelcastInstance();
+        //adding ttl for list, may be will help:)))))
+        Config config = new Config();
+        LocalListConfig listConfig = new LocalListConfig();
+        listConfig.setMaxSize(50);
+        listConfig.setTimeToLiveSeconds(10);
+        listConfig.setBackupCount(0);
+        listConfig.setName("employeeList");
+        config.addListConfig(listConfig);
+        HazelcastInstance instance = Hazelcast.newHazelcastInstance(config);
         return instance;
     }
 

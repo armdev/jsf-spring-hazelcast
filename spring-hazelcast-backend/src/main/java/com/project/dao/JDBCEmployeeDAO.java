@@ -88,10 +88,10 @@ public class JDBCEmployeeDAO implements EmployeeDAO {
 
     @Override
     public List<Employee> listEmployees() {
-        System.out.println("========List of employees======");
+        System.out.println("======== List of employees ======");
         String query = "SELECT * FROM EMPLOYEE";
         List<Employee> empList = hazelcastService.listEmployees();
-        System.out.println("--------LIST SIZE FROM HAZELCAST--------- " + empList.size());
+        System.out.println("-------- LIST SIZE FROM HAZELCAST --------- " + empList.size());
         if (empList.isEmpty()) {
             List<Map<String, Object>> rows = jdbcTemplate.queryForList(query);
             empList = new ArrayList<>();
@@ -103,7 +103,8 @@ public class JDBCEmployeeDAO implements EmployeeDAO {
                 employee.setRole((String) row.get("ROLE"));
                 empList.add(employee);
             }
-            System.out.println("Loading list from database: size is:  " + empList.size());
+            System.out.println("=============Loading list from database: size is: ============== " + empList.size());
+            System.out.println("-----------------------------------------");
             System.out.println("=======Adding list to hazelcast=========");
             hazelcastService.addEmployees(empList);
         } else {
